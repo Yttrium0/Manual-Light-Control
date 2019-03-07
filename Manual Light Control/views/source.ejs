@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DomoLight
+        </title>
+        <meta charset="utf-8"\>
+        <style>
+        .bouton{
+            width: 940px;
+            height: 940px;
+            background-color: #ffffff;
+            font:bold 13px Arial;
+            border-radius:100%;
+            border-color: green;
+            font-size: 200px;
+            text-align: center; 
+            margin: auto;
+            display: block;
+            border-width: 15px;
+        }
+        </style>
+    </head>
+    <body>
+        <!--<h1>DomoLight</h1>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <input type="button" class="bouton" value=<%= etat %>></input>
+    </body>
+    <script type="text/javascript">
+        var bouton = document.querySelector("input");
+        var html = document.querySelector("html");
+        
+        function colorModif(etat){
+            if(etat == "OFF"){
+                bouton.style.borderColor = "red";
+            }else if(etat == "ON"){
+                bouton.style.borderColor = "green";
+            }
+        }
+        colorModif("<%= etat %>");
+
+        bouton.addEventListener("click", function(){
+            document.location.href = "/button";
+        });
+    </script>
+</html>
