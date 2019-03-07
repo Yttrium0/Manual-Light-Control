@@ -9,10 +9,10 @@ app.get("/", function(req, res){
     exec("gpio read 28", function(error, stdout, stderr){
         status = stdout;
         console.log("status function " + status);
-        if(status == 0){
+        if(status == 1){
             console.log("Etat : OFF");
             res.render("source.ejs", {etat: 'OFF'});
-        }else if(status == 1){
+        }else if(status == 0){
             console.log("Etat : ON");
             res.render("source.ejs", {etat: 'ON'});
         }
